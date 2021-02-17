@@ -1,9 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
+import Page from "./src/page";
 import React, {useState} from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import NavBar from "./src/navbar";
 import {Alert} from "react-native";
 import Welcome from "./src/welcome";
+import Slider from '@react-native-community/slider';
+
 //import Welcome from "./src/welcome";
 
 
@@ -25,7 +27,7 @@ export default function App() {
     )
   }else{
     mainElement = (
-        <Text>dsfdsfds</Text>
+        <Page/>
     )
   }
 
@@ -51,8 +53,6 @@ const styles = StyleSheet.create({
   mainContent:{
     flex: 1,
     width: '80%',
-
-
     alignItems: 'center',
     justifyContent: 'center'
   }
