@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Button} from 'react-native';
+
 import NavBar from "./navbar";
 
 
 
 
-export default function Welcome() {
+export default function Welcome(props) {
     return(
         <View>
             <View style={styles.textWrapper}>
@@ -15,10 +16,13 @@ export default function Welcome() {
                 </Text>
             </View>
             <View style = {styles.buttonWrapper}>
-                <Button
-                    title = "press"
-                    onPress = {()=>Alert.alert("clicked")}
-                />
+                <View style = {styles.buttonDimensions}>
+                    <Button
+                        color = "black"
+                        title = "Начать"
+                        onPress = {props.start}
+                    />
+                </View>
             </View>
         </View>
     )
@@ -32,6 +36,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
 
 
+    },
+    buttonDimensions:{
+      width: '80%',
+      height: 60
     },
     mainText:{
         textAlign: 'center',
