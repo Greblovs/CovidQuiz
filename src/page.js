@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 import Slider from '@react-native-community/slider';
 import {Animated} from 'react-native'
 
-export default function Page() {
+export default function Page(props) {
     return(
         <View style={{width: '100%', flex: 1}}>
             <View style={styles.textContainer}>
@@ -27,12 +27,13 @@ export default function Page() {
                 <Button
                     color = "black"
                     title = "Назад"
+                    onPress={props.back}
 
                 />
                 <Button
                     color = "black"
                     title = "Дальше"
-
+                    onPress = {props.forward }
                 />
             </View>
         </View>

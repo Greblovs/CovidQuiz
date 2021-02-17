@@ -30,7 +30,7 @@ export default function Welcome(props) {
 
 const styles = StyleSheet.create({
     textWrapper:{
-        flex: 1/2,
+        flex: 3/5,
         alignItems: 'center',
 
         justifyContent: 'center',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     buttonWrapper:{
         marginTop: '15%',
-        flex: 1/2,
+        flex: 2/5,
 
         alignItems: 'center'
     },

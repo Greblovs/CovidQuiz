@@ -17,7 +17,14 @@ export default function App() {
 
   const addPage = () =>{
     setPage(prev=>(1))
-    Alert.alert(page.toString())
+
+  }
+  const goBack = () =>{
+    setPage(prev=>(prev-1))
+  }
+  const goForward = () =>{
+    setPage(prev=>(prev+1))
+
   }
 
   let mainElement;
@@ -27,7 +34,7 @@ export default function App() {
     )
   }else{
     mainElement = (
-        <Page/>
+        <Page back = {goBack} forward = {goForward}/>
     )
   }
 
