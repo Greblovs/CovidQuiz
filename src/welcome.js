@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     textWrapper:{
         flex: 1/2,
         alignItems: 'center',
-        
+
         justifyContent: 'center',
 
 
