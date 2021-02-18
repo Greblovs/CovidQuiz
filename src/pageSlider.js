@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 
 
 import Slider from '@react-native-community/slider';
-import {Animated} from 'react-native'
 
 export default function PageSlider(props) {
     return(
