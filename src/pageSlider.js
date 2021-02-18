@@ -24,9 +24,9 @@ export default function PageSlider(props) {
                     minimumValue={0}
                     step={1}
 
-                    thumbTintColor = 'purple'
-                    minimumTrackTintColor="red"
-                    maximumTrackTintColor="green" value={value}
+                    thumbTintColor = 'black'
+                    minimumTrackTintColor="black"
+                    maximumTrackTintColor="grey" value={value}
                         onValueChange={
                             (sliderValue) =>  setValue(prev=>(sliderValue))
                         }
