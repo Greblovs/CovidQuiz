@@ -1,11 +1,18 @@
 
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View, Button, Alert} from 'react-native';
+
 
 
 import Slider from '@react-native-community/slider';
 
 export default function PageSlider(props) {
+    const [value, setValue] = useState(0);
+
+
+
+
+
     return(
         <View style={{width: '100%', flex: 1}}>
             <View style={styles.textContainer}>
@@ -16,11 +23,15 @@ export default function PageSlider(props) {
                     maximumValue={100}
                     minimumValue={0}
                     step={1}
-                    value= {12}
+
                     thumbTintColor = 'purple'
                     minimumTrackTintColor="red"
-                    maximumTrackTintColor="green"
+                    maximumTrackTintColor="green" value={value}
+                        onValueChange={
+                            (sliderValue) =>  setValue(prev=>(sliderValue))
+                        }
                 />
+                <Text style={styles.percentDisplay}>{value + "%"}</Text>
             </View>
             <View style={styles.controls}>
                 <Button
@@ -60,7 +71,10 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         flexWrap:'wrap',
         flex: 1/5,
-
         justifyContent: 'space-evenly'
+    },
+    percentDisplay:{
+        fontSize: 20,
+        color: 'black'
     }
 })
