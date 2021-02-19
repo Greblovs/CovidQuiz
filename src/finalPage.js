@@ -42,15 +42,11 @@ export default function FinalPage(props) {
             <View style={styles.controls}>
                 <Button
                     color = "black"
-                    title = "Назад"
-                    onPress={props.back}
+                    title = "Перезапустить"
+                    onPress={props.goStart}
 
                 />
-                <Button
-                    color = "black"
-                    title = "Дальше"
-                    onPress = {props.forward }
-                />
+
             </View>
         </View>
     )

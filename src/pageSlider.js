@@ -40,7 +40,7 @@ export default function PageSlider(props) {
                 <Button
                     color = "black"
                     title = "Дальше"
-                    onPress = {props.forward }
+                    onPress = {()=>{props.forward(value, props.num)} }
                 />
             </View>
         </View>

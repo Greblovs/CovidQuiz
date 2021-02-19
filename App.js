@@ -15,17 +15,11 @@ import Final from "./src/finalPage"
 
 export default function App() {
   const [page, setPage] = useState(0)
-  const [answers, changeAnswer] = useState({
-    answers: []
-  })
-  const assignAnswer = ()=>{
+  const [answers, changeAnswer] = useState([])
 
-    changeAnswer(
-        prev =>{
-          answers: answers.answers.push(element)
-        }
-    )
-  }
+
+
+
   const addPage = () =>{
     setPage(prev=>(1))
 
@@ -33,11 +27,32 @@ export default function App() {
   const goBack = () =>{
     setPage(prev=>(prev-1))
   }
-  const goForward = () =>{
+  const goForward = (answer, num) =>{
     setPage(prev=>(prev+1))
+    submitToArray(answer, num);
+
+  }
+  console.log(answers)
+  const submitToArray = (answer, number)=>{
+    let copy = [...answers]
+    if (answers.length < (number-1)){
+      copy.push(answer)
+      changeAnswer(prev=> (
+        copy
+      )
+    )
+    }else{
+      copy[number-1] = answer
+      changeAnswer(prev=> (
+        copy
+      ))
+    }
   }
 
-
+const backToStart = () =>{
+    setPage(prev=>(0))
+    changeAnswer([])
+}
 
   let mainElement;
   if (page == 0){
@@ -46,14 +61,14 @@ export default function App() {
     )
   }else if(page ==1){
     mainElement = (
-        <PageSlider back = {goBack} forward = {goForward}/>
+        <PageSlider num ={1} submit = {submitToArray} back = {goBack} forward = {goForward}/>
     )} else if(page ==2){
       mainElement = (
-          <PageMC back = {goBack} forward = {goForward} getResult = {assignAnswer}/>
+          <PageMC num ={2} back = {goBack} forward = {goForward} getResult = {goForward}/>
       )
     }else{
       mainElement= (
-          <Final percent={25} back = {goBack} forward = {goForward} />
+          <Final percent={25} goStart={backToStart} />
       )
     }
 
