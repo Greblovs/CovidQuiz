@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
 
 
 export default function PageSlider(props) {
-    const [answer, setAnswer] = useState(null);
+    const [answer, setAnswer] = useState( props.getAnswer(props.num));
 
     const trigger = (num) =>{
         setAnswer (prev =>(num))

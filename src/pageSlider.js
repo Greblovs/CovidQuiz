@@ -7,7 +7,7 @@ import { StyleSheet, Text, View, Button, Alert} from 'react-native';
 import Slider from '@react-native-community/slider';
 
 export default function PageSlider(props) {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(props.getAnswer(props.num));
 
 
     return(

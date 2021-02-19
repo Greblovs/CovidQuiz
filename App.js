@@ -27,15 +27,24 @@ export default function App() {
   const goBack = () =>{
     setPage(prev=>(prev-1))
   }
+
   const goForward = (answer, num) =>{
     setPage(prev=>(prev+1))
     submitToArray(answer, num);
+  }
 
+  const getAnswerResubmit = (num) =>{
+    if (answers.length < (num)){
+      return 0
+    }else{
+      return answers[num -1]
+    }
   }
   console.log(answers)
+  console.log(answers.length)
   const submitToArray = (answer, number)=>{
     let copy = [...answers]
-    if (answers.length < (number-1)){
+    if (answers.length < (number-2)){
       copy.push(answer)
       changeAnswer(prev=> (
         copy
@@ -61,10 +70,10 @@ const backToStart = () =>{
     )
   }else if(page ==1){
     mainElement = (
-        <PageSlider num ={1} submit = {submitToArray} back = {goBack} forward = {goForward}/>
+        <PageSlider getAnswer = {getAnswerResubmit} num ={1} submit = {submitToArray} back = {goBack} forward = {goForward}/>
     )} else if(page ==2){
       mainElement = (
-          <PageMC num ={2} back = {goBack} forward = {goForward} getResult = {goForward}/>
+          <PageMC getAnswer = {getAnswerResubmit} num ={2} back = {goBack} forward = {goForward} getResult = {goForward}/>
       )
     }else{
       mainElement= (
