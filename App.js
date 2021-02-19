@@ -5,6 +5,7 @@ import NavBar from "./src/navbar";
 import {Alert} from "react-native";
 import Welcome from "./src/welcome";
 import PageMC from "./src/pageMC"
+import Final from "./src/finalPage"
 
 //import Welcome from "./src/welcome";
 
@@ -51,7 +52,9 @@ export default function App() {
           <PageMC back = {goBack} forward = {goForward} getResult = {assignAnswer}/>
       )
     }else{
-    <PageMC back = {goBack} forward = {goForward} getResult = {assignAnswer}/>
+      mainElement= (
+          <Final percent={25} back = {goBack} forward = {goForward} />
+      )
     }
 
 

@@ -55,9 +55,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         alignItems: 'center',
     },
-
     choiceContainer: {
-
         width: '100%',
         flex: 2/5,
         justifyContent: 'center',
@@ -100,7 +98,6 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         flexWrap:'wrap',
         flex: 1/5,
-
         justifyContent: 'space-evenly'
     }
 })

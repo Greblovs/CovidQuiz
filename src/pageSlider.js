@@ -10,9 +10,6 @@ export default function PageSlider(props) {
     const [value, setValue] = useState(0);
 
 
-
-
-
     return(
         <View style={{width: '100%', flex: 1}}>
             <View style={styles.textContainer}>
