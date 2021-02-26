@@ -37,7 +37,7 @@ export default function PageSlider(props) {
     return(
         <View style={{width: '100%', flex: 1}}>
             <View style={styles.textContainer}>
-                <Text>{props.questionText}</Text>
+                <Text style={styles.questionTextStyle}>{props.questionText}</Text>
             </View>
             <View style={styles.choiceContainer}>
                 {answers}
@@ -80,8 +80,8 @@ export default function PageSlider(props) {
 
 const styles = StyleSheet.create({
     textContainer:{
-
-        flex: 1/5,
+        width: '100%',
+        flex: 2/5,
         justifyContent: 'center',
         textAlign: 'center',
         alignItems: 'center',
@@ -95,6 +95,10 @@ const styles = StyleSheet.create({
     touchableHolder:{
       width: '100%',
         alignItems: 'center'
+    },
+    questionTextStyle:{
+      textAlign: 'center',
+      fontSize: 18
     },
     choice:{
         justifyContent: 'center',

@@ -17,7 +17,7 @@ export default function PageSlider(props) {
     return(
         <View style={{width: '100%', flex: 1}}>
             <View style={styles.textContainer}>
-                <Text>{props.questionText}</Text>
+                <Text style={styles.questionTextStyle}>{props.questionText}</Text>
             </View>
             <View style={styles.sliderContainer}>
                 <Slider style={styles.slider}
@@ -56,6 +56,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         textAlign: 'center',
         alignItems: 'center',
+    },
+    questionTextStyle:{
+        textAlign: 'center',
+        fontSize: 18
     },
     sliderContainer: {
         width: '100%',
