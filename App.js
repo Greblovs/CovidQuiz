@@ -18,7 +18,42 @@ export default function App() {
   const [answers, changeAnswer] = useState([])
 
 
+  const calculateResult = ()=>{
+      let sum = 0;
+      if (answers[0] <= 37){
+        sum += 0
+      }else if(answers[0] <= 37.5){
+        sum += 0.5 *20
+      }else{
+        sum += 20
+      }
+      if (sum !== 0 && answers[1] === 2){
+        sum += 30
+      }else if(answers[1] ==3){
+        sum += 0.1
+      }
+      if (answers[2] === 1){
+        sum += 20
+      }
+      // 16 -> 3
+      if (answers[3]>3){
+        sum += 5*answers[3]/10
+      }
+      if (answers[4] === 1){
+        sum +=  11
+      }
+      if (answers[5] > 3){
+        sum += 4
+      }
+      if (answers[6] == 1){
+        sum += 9
+      }
+      if (answers[7] == 1){
+        sum += 1
+      }
 
+      return sum
+  }
 
   const addPage = () =>{
     setPage(prev=>(1))
@@ -75,7 +110,7 @@ export default function App() {
     )
   }else if(page ==1){
     mainElement = (
-        <PageSlider pageN = {page} questionText = {questions.question1.question} min ={questions.question1.min} max={questions.question1.max} getAnswer = {getAnswerResubmit} num ={1} submit = {submitToArray} back = {goBack} forward = {goForward}/>
+        <PageSlider step = {0.1} pageN = {page} questionText = {questions.question1.question} min ={questions.question1.min} max={questions.question1.max} getAnswer = {getAnswerResubmit} num ={1} submit = {submitToArray} back = {goBack} forward = {goForward}/>
     )} else if(page ==2){
       mainElement = (
           <PageMC pageN = {page} questionText = {questions.question2.question} answers = {questions.question2.answers} getAnswer = {getAnswerResubmit} num ={2} back = {goBack} forward = {goForward} getResult = {goForward}/>
@@ -86,14 +121,14 @@ export default function App() {
     )
   }else if(page ==4){
   mainElement = (
-      <PageSlider pageN = {page} questionText = {questions.question4.question} min ={questions.question4.min} max={questions.question4.max} getAnswer = {getAnswerResubmit} num ={4} submit = {submitToArray} back = {goBack} forward = {goForward}/>
+      <PageSlider step = {0.5} pageN = {page} questionText = {questions.question4.question} min ={questions.question4.min} max={questions.question4.max} getAnswer = {getAnswerResubmit} num ={4} submit = {submitToArray} back = {goBack} forward = {goForward}/>
   )}else if(page ==5){
     mainElement = (
         <PageMC pageN = {page} questionText = {questions.question5.question} answers = {questions.question5.answers} getAnswer = {getAnswerResubmit} num ={5} back = {goBack} forward = {goForward} getResult = {goForward}/>
     )
   }else if(page ==6){
     mainElement = (
-        <PageSlider pageN = {page} questionText = {questions.question6.question} min ={questions.question6.min} max={questions.question6.max} getAnswer = {getAnswerResubmit} num ={6} submit = {submitToArray} back = {goBack} forward = {goForward}/>
+        <PageSlider step = {0.5} pageN = {page} questionText = {questions.question6.question} min ={questions.question6.min} max={questions.question6.max} getAnswer = {getAnswerResubmit} num ={6} submit = {submitToArray} back = {goBack} forward = {goForward}/>
     )
 
   }else if(page ==7){
@@ -108,7 +143,7 @@ export default function App() {
     )
   }else{
       mainElement= (
-          <Final pageN = {page} percent={25} goStart={backToStart} />
+          <Final pageN = {page} percent={calculateResult()} goStart={backToStart} />
       )
     }
 

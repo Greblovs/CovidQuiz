@@ -23,7 +23,7 @@ export default function PageSlider(props) {
                 <Slider style={styles.slider}
                     maximumValue={props.max}
                     minimumValue={props.min}
-                    step={1}
+                    step={props.step}
                     thumbTintColor = 'black'
                     minimumTrackTintColor="black"
                     maximumTrackTintColor="grey" value={value}
@@ -31,7 +31,7 @@ export default function PageSlider(props) {
                             (sliderValue) =>  setValue(prev=>(sliderValue))
                         }
                 />
-                <Text style={styles.percentDisplay}>{value + "%"}</Text>
+                <Text style={styles.percentDisplay}>{value }</Text>
             </View>
             <View style={styles.controls}>
                 <Button
