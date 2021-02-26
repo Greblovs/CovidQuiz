@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet, Text, View, Button, Alert} from 'react-native';
 
 
@@ -7,20 +7,23 @@ import { StyleSheet, Text, View, Button, Alert} from 'react-native';
 import Slider from '@react-native-community/slider';
 
 export default function PageSlider(props) {
-    const [value, setValue] = useState(props.getAnswer(props.num));
-
+    const [value, setValue] = useState(0)
+    useEffect(()=>{
+            setValue(prev=>(
+                props.getAnswer(props.num)
+            ))}
+        ,[props.pageN])
 
     return(
         <View style={{width: '100%', flex: 1}}>
             <View style={styles.textContainer}>
-                <Text>Текст Вопроса</Text>
+                <Text>{props.questionText}</Text>
             </View>
             <View style={styles.sliderContainer}>
                 <Slider style={styles.slider}
-                    maximumValue={100}
-                    minimumValue={0}
+                    maximumValue={props.max}
+                    minimumValue={props.min}
                     step={1}
-
                     thumbTintColor = 'black'
                     minimumTrackTintColor="black"
                     maximumTrackTintColor="grey" value={value}
